@@ -99,8 +99,8 @@ public class TestAuto {
 
 		// EV3ColorSensor color = new EV3ColorSensor(SensorPort.S1);
 
-		// UnregulatedMotor MotorR = new UnregulatedMotor(MotorPort.C);
-		// UnregulatedMotor MotorL = new UnregulatedMotor(MotorPort.D);
+		 UnregulatedMotor MotorR = new UnregulatedMotor(MotorPort.C);
+		 UnregulatedMotor MotorL = new UnregulatedMotor(MotorPort.D);
 
 		// EV3ColorSensor color1 = new EV3ColorSensor(SensorPort.S3);
 		// SensorMode colorID = color1.getColorIDMode();
@@ -115,16 +115,16 @@ public class TestAuto {
 
 		// }
 
-		// MotorR.setPower(100);
-		// MotorL.setPower(100);
+		 MotorR.setPower(100);
+		 MotorL.setPower(100);
 
-		// Delay.msDelay(2000);
+		 Delay.msDelay(2000);
 
-		// MotorR.stop();
-		// MotorL.stop();
+		 MotorR.stop();
+		 MotorL.stop();
 
-		// MotorL.close();
-		// MotorR.close();
+		 MotorL.close();
+		 MotorR.close();
 
 	}
 
