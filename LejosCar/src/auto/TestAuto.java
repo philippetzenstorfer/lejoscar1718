@@ -86,6 +86,9 @@ public class TestAuto {
 		C.stop();
 		B.rotateTo(360);
 		B.rotate(-720, true);
+		
+		
+//		wachbirne
 //		while (mB.isMoving())
 //			Thread.yield();
 //		angle = mB.getTachoCount();
