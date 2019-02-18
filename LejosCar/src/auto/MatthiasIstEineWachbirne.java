@@ -32,29 +32,54 @@ public class MatthiasIstEineWachbirne {
 		private static EV3ColorSensor colorSensor;
 
 		
-		RegulatedMotor Right= new EV3LargeRegulatedMotor(MotorPort.B);
-		RegulatedMotor Left= new EV3LargeRegulatedMotor(MotorPort.C);
+		
+			
+			
 			
 		
 		public static void main(String[] args) {
 
-	
-		colorSensor = new EV3ColorSensor(SensorPort.S1);
+		RegulatedMotor B = new EV3LargeRegulatedMotor(MotorPort.B); 
+		RegulatedMotor C = new EV3LargeRegulatedMotor(MotorPort.C);
+			
+		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
 		SensorMode color = colorSensor.getColorIDMode();
 		
 	
 		
-		
-	while (color.fetchSample(sample, 0);) {
-		
-		
-		
-		
+		float[] sample = new float[color.sampleSize()];	
+		color.fetchSample(sample, 0); {
+		int colorId = (int) sample[0];
+ 		String colorName = "";
 		
 		
-	}
-		 
+	
+		while (colorSensor.getColorID() == Color.BLACK){
+			B.setSpeed(100);
+			C.setSpeed(100);
+			Delay.msDelay(2000);
+			
+			}
+		B.close();
+		C.close();
+		colorSensor.close();
 		
+				
+			
+
+//		else (colorSensor.getColorID() == Color.WHITE){
+//			RegulatedMotor B = new EV3LargeRegulatedMotor(MotorPort.B); 
+//			RegulatedMotor C = new EV3LargeRegulatedMotor(MotorPort.C);
+//			B.stop();
+//			C.stop();
+		
+				
+			
+
+		}
+		}
+}
+
 	
 			 
 
@@ -62,12 +87,12 @@ public class MatthiasIstEineWachbirne {
 		
 		
 		
-	}
+//}
 		
-		}		
+		
 		 
 		
-}
+
 		
 		
 	
