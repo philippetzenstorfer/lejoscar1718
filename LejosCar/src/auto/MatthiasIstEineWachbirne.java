@@ -75,6 +75,11 @@ public class MatthiasIstEineWachbirne {
 		case Color.BROWN:
 			colorName = "BROWN";
 			break;
+			
+			
+			
+			
+			}
 		}
 //		lcd.drawString(colorId + " - " + colorName, 0, 0);
 //		keys.waitForAnyPress();
@@ -98,7 +103,7 @@ public class MatthiasIstEineWachbirne {
 			
 				}}
 			
-			
+			if
 			
 //			else {
 //				A.setSpeed(0);

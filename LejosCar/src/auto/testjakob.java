@@ -1,0 +1,10 @@
+package auto;
+
+public class testjakob {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
