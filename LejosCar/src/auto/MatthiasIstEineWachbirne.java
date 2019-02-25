@@ -29,40 +29,102 @@ import lejos.robotics.Touch;
 
 public class MatthiasIstEineWachbirne {
 		
-		private static EV3ColorSensor colorSensor;
+		
+		
 
-		
-		
-			
-			
-			
+	private static EV3ColorSensor colorSensor;
 		
 		public static void main(String[] args) {
 
-		RegulatedMotor B = new EV3LargeRegulatedMotor(MotorPort.B); 
-		RegulatedMotor C = new EV3LargeRegulatedMotor(MotorPort.C);
+		RegulatedMotor A = new EV3LargeRegulatedMotor(MotorPort.A); 
+		RegulatedMotor B = new EV3LargeRegulatedMotor(MotorPort.B);
 			
-		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
+		
+		
+		colorSensor = new EV3ColorSensor(SensorPort.S1);
 		SensorMode color = colorSensor.getColorIDMode();
-		
-	
-		
 		float[] sample = new float[color.sampleSize()];	
-		color.fetchSample(sample, 0); {
+		
+		while(true) {
+			color.fetchSample(sample, 0); {
+		
 		int colorId = (int) sample[0];
  		String colorName = "";
+ 		switch (colorId) {
+		case Color.NONE:
+			colorName = "NONE";
+			break;
+		case Color.BLACK:
+			colorName = "BLACK";
+			break;
+		case Color.BLUE:
+			colorName = "BLUE";
+			break;
+		case Color.GREEN:
+			colorName = "GREEN";
+			break;
+		case Color.YELLOW:
+			colorName = "YELLOW";
+			break;
+		case Color.RED:
+			colorName = "RED";
+			break;
+		case Color.WHITE:
+			colorName = "WHITE";
+			break;
+		case Color.BROWN:
+			colorName = "BROWN";
+			break;
+		}
+//		lcd.drawString(colorId + " - " + colorName, 0, 0);
+//		keys.waitForAnyPress();
 		
 		
 	
-		while (colorSensor.getColorID() == Color.BLACK){
-			B.setSpeed(100);
-			C.setSpeed(100);
-			Delay.msDelay(2000);
+//		while(true) {
+//			
+//				A.setSpeed(300);
+//				A.backward();
+//				
+//				B.setSpeed(300);
+//				B.backward();
+ 		
+ 		System.out.println("color: " +  colorName);
+//				
+		try {	
+		Thread.sleep(100);
+				}catch (InterruptedException e) {
+				}
 			
-			}
-		B.close();
-		C.close();
-		colorSensor.close();
+				}}
+			
+			
+			
+//			else {
+//				A.setSpeed(0);
+//				A.backward();
+//				
+//				B.setSpeed(0);
+//				B.backward();
+//				
+//				try {
+//					Thread.sleep(3000);
+//				}catch(InterruptedException e) {
+//				}
+//				
+//				
+//				
+				
+//			}
+			
+			
+//			A.close();
+//			B.close();
+//			colorSensor.close();
+//			}
+	
+	
+
 		
 				
 			
@@ -73,10 +135,9 @@ public class MatthiasIstEineWachbirne {
 //			B.stop();
 //			C.stop();
 		
-				
 			
 
-		}
+//		}
 		}
 }
 
