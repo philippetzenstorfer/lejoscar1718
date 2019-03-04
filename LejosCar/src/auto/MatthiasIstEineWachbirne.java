@@ -35,11 +35,11 @@ public class MatthiasIstEineWachbirne {
 	private static EV3ColorSensor colorSensor;
 
 	public static void main(String[] args) {
-
+// 		Zuordnung der Motoren
 		RegulatedMotor A = new EV3LargeRegulatedMotor(MotorPort.A);
 		RegulatedMotor B = new EV3LargeRegulatedMotor(MotorPort.B);
 		RegulatedMotor C = new EV3MediumRegulatedMotor(MotorPort.C);
-
+//		Zuordnung des Farbsensensors
 		colorSensor = new EV3ColorSensor(SensorPort.S1);
 		SensorMode color = colorSensor.getColorIDMode();
 		float[] sample = new float[color.sampleSize()];
@@ -52,40 +52,65 @@ public class MatthiasIstEineWachbirne {
 				int colorId = (int) sample[0];
 				// String colorName = "";
 				switch (colorId) {
-
+//		Wenn der Farbsensor Schwarz erkennt dann fährt er gerade 
 				case Color.BLACK:
-					C.rotateTo(limitAngle);
-					A.forward();
-					B.forward();
+					C.rotateTo(0);
+					A.setSpeed(200);
+					B.setSpeed(200);
+					A.backward();
+					B.backward();
 					break;
+//		Wenn der Farbsensor Rot erkennt	dann fährt er nach rechts		
 				case Color.RED:
 					A.stop();
 					B.stop();
-					C.rotateTo(limitAngle);
-					TimeUnit.SECONDS.sleep(1);
-					A.forward();
-					B.forward();
+					C.rotateTo(90);
+					C.stop();
+					try {
+						TimeUnit.SECONDS.sleep(1);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					A.setSpeed(200);
+					B.setSpeed(200);
+					A.backward();
+					B.backward();
 					break;
+//		Wenn der Farbsensor Grün erkennt fährt er nach rechts
 				case Color.GREEN:
-					A.stop();
-					B.stop();
-					C.rotateTo(limitAngle);
-					TimeUnit.SECONDS.sleep(1);
-					A.forward();
-					B.forward();
+					//A.stop();
+					//B.stop();
+					C.rotateTo(-180);
+					C.stop();
+					try {
+						TimeUnit.SECONDS.sleep(1);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					A.setSpeed(200);
+					B.setSpeed(200);
+					A.backward();
+					B.backward();
 					break;
+//		Wenn der Farbsensor White erkennt bleibt er stehen
 				case Color.WHITE:
+					C.rotateTo(0);
 					A.stop();
 					B.stop();
 					break;
 
 				}
-
+//		einmal pro Sekunde wird die Farbe abgefragt
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(800);
 
 				} catch (InterruptedException e) {
 				}
+				//A.close();
+				//B.close();
+				//C.close();
 			}
 		}
 	}
